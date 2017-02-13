@@ -14,7 +14,7 @@ Simple Zelda Triforce animation with Java Binding for the OpenGL
 Clone
 
 ```
-git clone https://github.com/humbertodias/zelda-triforce-jogl.git
+git clone https://github.com/humbertodias/jogl-zelda-triforce.git
 ```
 
 Inside the folder
