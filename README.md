@@ -2,7 +2,7 @@
 
 Simple Zelda Triforce animation with Java Binding for the OpenGL
 
-### Prerequires
+### Prerequisites
 
 1. Git 2.6+
 2. Maven 3+
@@ -13,19 +13,14 @@ Simple Zelda Triforce animation with Java Binding for the OpenGL
 
 Clone
 
-```
+```shell
 git clone https://github.com/humbertodias/jogl-zelda-triforce.git
-```
-
-Inside the folder
-
-```
 cd zelda-triforce-jogl
 ```
 
 Run
 
-```
+```shell
 mvn compile exec:java -Dexec.mainClass="jogl.zelda.triforce.Main"
 ```
 
