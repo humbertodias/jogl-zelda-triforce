@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <name>jogl-zelda-triforce</name>
     <modelVersion>4.0.0</modelVersion>
@@ -12,10 +13,13 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <jogl.version>v2.4.0-rc4</jogl.version>
+        <main.class>jogl.zelda.triforce.Main</main.class>
     </properties>
-    
-    <description>Choose a 3D game, create a document with an analysis of its graphical aspects. Then, choose a scene from this game to be modeled in OpenGL</description>
-    
+
+    <description>Choose a 3D game, create a document with an analysis of its graphical aspects. Then, choose a scene
+        from this game to be modeled in OpenGL
+    </description>
+
     <dependencies>
 
         <!-- JOGL -->
@@ -130,5 +134,41 @@
             <url>https://maven.jzy3d.org/releases/</url>
         </repository>
     </repositories>
+
+    <build>
+
+    <plugins>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.6.0</version>
+            <configuration>
+                <createDependencyReducedPom>false</createDependencyReducedPom>
+                <filters>
+                    <filter>
+                        <artifact>*:*</artifact>
+                    </filter>
+                </filters>
+                <transformers>
+                    <transformer
+                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <mainClass>${main.class}</mainClass>
+                    </transformer>
+                </transformers>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+
+    </build>
 
 </project>
