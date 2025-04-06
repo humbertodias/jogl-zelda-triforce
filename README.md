@@ -1,3 +1,6 @@
+[![CD](https://github.com/humbertodias/jogl-zelda-triforce/actions/workflows/cd.yml/badge.svg)](https://github.com/humbertodias/jogl-zelda-triforce/actions/workflows/cd.yml)
+![GitHub all releases](https://img.shields.io/github/downloads/humbertodias/jogl-zelda-triforce/total)
+
 # Zelda Triforce with JOGL
 
 Simple Zelda Triforce animation with Java Binding for the OpenGL
