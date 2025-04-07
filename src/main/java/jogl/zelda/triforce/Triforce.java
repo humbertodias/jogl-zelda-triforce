@@ -9,8 +9,9 @@ import java.nio.FloatBuffer;
 
 public class Triforce implements GLEventListener {
 
-    private double rotationSpeed = 500;
-    private double deltaTime = 0.001;
+    private double rotationSpeed = 50;
+    private long lastTime = System.nanoTime();
+    private double deltaTime;
     private double rotationAngle = 0.0;
     private final int zPosition = -30;
 
@@ -44,6 +45,10 @@ public class Triforce implements GLEventListener {
 
     @Override
     public void display(GLAutoDrawable drawable) {
+        long currentTime = System.nanoTime();
+        deltaTime = (currentTime - lastTime) / 1_000_000_000.0; // convert nanoseconds to seconds
+        lastTime = currentTime;
+
         GL2 gl = drawable.getGL().getGL2();
 
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
@@ -55,6 +60,7 @@ public class Triforce implements GLEventListener {
 
         rotationAngle = (rotationAngle + rotationSpeed * deltaTime) % 360.0;
     }
+
 
     private void drawTriangle(GL2 gl, float x, float y) {
         gl.glPushMatrix();
