@@ -24,7 +24,8 @@ cd zelda-triforce-jogl
 Run
 
 ```shell
-mvn compile exec:java -Dexec.mainClass="jogl.zelda.triforce.Main"
+mvn package
+java -jar target/jogl-zelda-triforce-1.0-SNAPSHOT.jar
 ```
 
 

@@ -3,10 +3,12 @@ package jogl.zelda.triforce;
 
 import com.jogamp.opengl.util.Animator;
 import com.jogamp.opengl.awt.GLCanvas;
+
 import java.awt.event.*;
 import javax.swing.JFrame;
 
 public class Main {
+    private static final boolean DEBUG = false;
 
     public static void main(String... args) {
         JFrame frame = new JFrame("Triforce");
@@ -41,8 +43,9 @@ public class Main {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        animator.setUpdateFPSFrames(1, System.out);
+        if (DEBUG) {
+            animator.setUpdateFPSFrames(1, System.out);
+        }
         animator.start();
         canvas.requestFocus();
     }
