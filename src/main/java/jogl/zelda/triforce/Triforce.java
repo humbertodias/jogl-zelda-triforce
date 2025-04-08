@@ -118,11 +118,12 @@ public class Triforce implements GLEventListener {
         GLU glu = new GLU();
 
         float aspect = (float) width / height;
+        float fov = 60f;
 
         gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(45.0f, aspect, 1.0f, 100.0f);
+        glu.gluPerspective(fov, aspect, 1.0f, 100.0f);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
     }
