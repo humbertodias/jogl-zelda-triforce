@@ -17,6 +17,7 @@ public class Triforce implements GLEventListener {
 
     private final FloatBuffer yellowMaterial = FloatBuffer.wrap(new float[]{0.86f, 0.74f, 0.14f, 1.0f});
     private final FloatBuffer orangeMaterial = FloatBuffer.wrap(new float[]{0.78f, 0.59f, 0.0f, 1.0f});
+    private boolean wireframe;
 
     @Override
     public void init(GLAutoDrawable drawable) {
@@ -52,7 +53,9 @@ public class Triforce implements GLEventListener {
         GL2 gl = drawable.getGL().getGL2();
 
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+        gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, wireframe ? GL2.GL_LINE : GL2.GL_FILL);
         gl.glLoadIdentity();
+
 
         drawTriangle(gl, -5, -5);
         drawTriangle(gl, 5, -5);
@@ -126,5 +129,9 @@ public class Triforce implements GLEventListener {
         glu.gluPerspective(fov, aspect, 1.0f, 100.0f);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
+    }
+
+    public void setWireframe(boolean wireframe) {
+        this.wireframe = wireframe;
     }
 }

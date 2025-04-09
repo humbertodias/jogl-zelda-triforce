@@ -31,7 +31,7 @@ java -jar target/jogl-zelda-triforce-1.0-SNAPSHOT.jar
 
 ### Output
 ![Preview](doc/triforce.gif)
-
+F = FullScreen W = Wireframe
 
 ### References
 
